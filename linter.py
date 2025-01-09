@@ -19,12 +19,14 @@ from SublimeLinter.lint import PythonLinter, util
 class Bootlint(PythonLinter):
 
     """Provides an interface to bootlint."""
-
-    syntax = 'html'
-    cmd = 'bootlint'
-    version_args = '--version'
-    version_re = r'(?P<version>\d+\.\d+\.\d+)'
-    version_requirement = '>= 0.12.0'
+    defaults = {
+        'selector': 'text.html.basic',
+    }
+    selector = 'text.html.basic'
+    cmd = 'bootlint ${temp_file}'
+    # version_args = '--version'
+    # version_re = r'(?P<version>\d+\.\d+\.\d+)'
+    # version_requirement = '>= 0.12.0'
     regex = (
         r'^.+?:'  # filename
         r'(?P<line>\d+):(?P<col>\d+) '
